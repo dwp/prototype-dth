@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Enter your email address - GOV.UK 
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/phase-banner.njk' %}
+    {% include 'includes/language-toggle.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="enter-password-account-exists" method="post">
+    
+                {{ govukInput({
+                    label: {
+                    text: "Enter your email address",
+                    classes: "govuk-label--l",
+                    isPageHeading: true
+        
+                    },
+                    id: "register-email-address",
+                    name: "register-email-address",
+                    type: "email"
+                }) }}
+                
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+            </form>
+        </div>
+    </div>
+{% endblock %}

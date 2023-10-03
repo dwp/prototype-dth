@@ -1,0 +1,26 @@
+{#- We can't mount GOV.UK Frontend's assets at root as it's done automatically by the extensions framework. -#}
+{%- set assetPath = '/govuk/assets' -%}
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+{% block header %}
+
+  {% if isHMRCPage %}
+    {% include "includes/cookie-banner-hmrc.html" %}
+  {% elif showCookieBanner %}
+    {% include "includes/cookie-banner.html" %}
+  {% endif %}
+
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: serviceName,
+    serviceUrl: "#"
+  }) }}
+
+{% endblock %}
+
+{% block postheader %}
+{% endblock %}
+
+{% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
+

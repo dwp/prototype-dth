@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = 'Improvements' %}
+
+{% block pageTitle %}
+  {{pageHeading}} - GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/phase-banner.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+
+            <h2 class="govuk-heading-m">
+                Filter existing users
+            </h2>
+
+            <p class="govuk-body">
+                Design concepts to explore filtering existing and new users. Includes some other updates to address problems raised by Change of Circumstances team discovered in their research.
+            </p>
+
+            <ul class="govuk-list">
+                <li><a href="./filter-existing-users/start" class="govuk-link">Registration journey</a></li>
+            </ul>
+
+            <h2 class="govuk-heading-m">
+                Pre-OIDV
+            </h2>
+
+            <p class="govuk-body">
+                Design concepts to explore the credential confusion faced by users.
+            </p>
+
+            <ul class="govuk-list">
+                <li><a href="./pre-oidv/iteration-1-a2w-email" class="govuk-link">Iteration 1</a></li>
+                <li><a href="./pre-oidv/iteration-2-a2w-email" class="govuk-link">Iteration 2</a></li>
+            </ul>
+
+            <h2 class="govuk-heading-m">
+                Credential confusion
+            </h2>
+
+            <p class="govuk-body">
+                Interim design concepts to test whether listing the services onboarded with OIDV on Register and Sign in page will provide more context to the users.
+            </p>
+
+            <ul class="govuk-list">
+                <li><a href="/auth/experimental/credential-confusion/start" class="govuk-link">Register</a></li>
+                <li><a href="/auth/experimental/credential-confusion/sign-in" class="govuk-link">Sign in</a></li>
+            </ul>
+
+            <h2 class="govuk-heading-m">
+                Password toggle
+            </h2>
+
+            <p class="govuk-body">
+                Password show/hide toggle <a href="https://dwpdigital.atlassian.net/jira/software/c/projects/IDTR/boards/7850?modal=detail&selectedIssue=IDTR-11108&assignee=60658ed19bc49b0070fa33f3" target="_blank" class="govuk-link">concept (opens in a new tab) </a>
+            </p>
+
+            <ul class="govuk-list">
+                <li><a href="/auth/experimental/password-toggle-v1" class="govuk-link">Iteration 1</a></li>
+            </ul>
+
+        </div>
+    </div>
+{% endblock %}
+

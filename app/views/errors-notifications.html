@@ -1,0 +1,160 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Errors, content pages and notifications
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
+    <h1 class="govuk-heading-l">
+      <span class="govuk-caption-l">Dynamic Trust Hub</span>
+      Errors, content pages and notifications
+    </h1>
+  </div>
+</div>
+
+<div class="flex-layout flex-layout--rev">
+  <div class="flex-layout__sidebar">
+    <aside class="app-related-items" role="complementary" style="float-right">
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Contents
+        </h2>
+        <ul class="govuk-list govuk-list--bullet govuk-!-font-size-16">
+          <li>
+            <a class="govuk-link" href="#errors">
+              Error messages
+            </a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#content">
+              Content pages
+            </a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#emails">
+              Notification emails
+            </a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#sms">
+              Notification text messages
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+  <div class="flex-layout__main">
+    <h2 class="govuk-heading-s" id="errors">Error messages</h2>
+    <ul class="govuk-list govuk-list--bullet">
+        <li><a href="/auth/dev-ready/register/email-code-check">Register - Email code - incorrect</a></li>
+        <li><a href="/auth/dev-ready/register/email-code-expired">Register - Email code - expired</a></li>
+        <li><a href="/auth/dev-ready/register/email-code-error-blank">Register - Email code - blank field</a></li>
+        <li><a href="/auth/dev-ready/register/code-check">Register - 2FA code - incorrect </a></li>
+        <li><a href="/auth/dev-ready/register/code-expired">Register - 2FA code - expired </a></li>
+        <li><a href="/auth/dev-ready/register/code-error-blank">Register - 2FA code - blank field</a></li>
+        <li><a href="/auth/dev-ready/register/email-address-incorrect-format">Register - Email - incorrect format</a></li>
+        <li><a href="/auth/dev-ready/register/email-address-error-blank">Register - Email - blank field</a></li>
+        <li><a href="/auth/dev-ready/register/mobile-error-invalid-characters">Register - Phone number - invalid characters</a></li>
+        <li><a href="/auth/dev-ready/register/mobile-error-uk-invalid-length">Register - Phone number - validated as a UK phone number but invalid length</a> ** DESCOPED **</li>
+        <li><a href="/auth/dev-ready/register/mobile-error-int-invalid-length">Register - Phone number - validated as an international phone number but invalid length</a> ** DESCOPED **</li>
+        <li><a href="/auth/dev-ready/register/mobile-error-invalid">Register - Phone number - invalid as UK or international</a></li>
+        <li><a href="/auth/dev-ready/register/mobile-error-blank">Register - Phone number - blank field</a></li>
+        <li><a href="/auth/dev-ready/sign-in-2fa-check">Sign in - 2FA code - incorrect </a></li>
+        <li><a href="/auth/dev-ready/sign-in-2fa-expired">Sign in - 2FA code - expired </a></li>
+        <li><a href="/auth/dev-ready/sign-in-error">Sign in - Incorrect email address or password</a></li>
+        <li><a href="/auth/dev-ready/sign-in-second-attempt-error">Sign in - Incorrect email address or password - second attempt</a></li>
+        <li><a href="/auth/dev-ready/sign-in-error-blank">Sign in - Blank fields</a></li>
+        <li><a href="/auth/dev-ready/reset-password/email-code-check">Reset password - Email code - incorrect</a></li>
+        <li><a href="/auth/dev-ready/reset-password/email-code-expired">Reset password - Email code - expired </a></li>
+        <li><a href="/auth/dev-ready/reset-password/text-code-check">Reset password - 2FA code - incorrect </a></li>
+        <li><a href="/auth/dev-ready/reset-password/text-code-expired">Reset password - 2FA code - expired </a></li>
+
+        <li><a href="/auth/dev-ready/register/date-of-birth-error-past">FINDr - Date of Birth - year too far in the past</a></li>
+        <li><a href="/auth/dev-ready/register/date-of-birth-error-year">FINDr - Date of Birth - year incorrect format</a></li>
+        <li><a href="/auth/dev-ready/register/date-of-birth-error-future">FINDr - Date of Birth - date in the future</a></li>
+        <li><a href="/auth/dev-ready/register/date-of-birth-error-valid-day">FINDr - Date of Birth - invalid day</a></li>
+        <li><a href="/auth/dev-ready/register/date-of-birth-error-valid-month">FINDr - Date of Birth - invalid month</a></li>
+        <li><a href="/auth/dev-ready/register/date-of-birth-error-valid-month-day">FINDr - Date of Birth - invalid month &amp; day</a></li> 
+        <li><a href="/auth/dev-ready/register/date-of-birth-error">FINDr - Date of Birth - blank fields</a></li>
+        <li><a href="/auth/dev-ready/register/postcode-error-blank">FINDr - Postcode - blank </a></li>
+        <li><a href="/auth/dev-ready/register/postcode-error">FINDr - Postcode - invalid </a></li>
+        <li><a href="/auth/dev-ready/register/name-error">FINDr - Name - blank fields</a></li>
+        <li><a href="/auth/dev-ready/register/name-invalid">FINDr - Name - invalid characters</a></li>
+        <li><a href="/auth/dev-ready/register/nino-error">FINDr - NINO - blank field</a> ** DESCOPED **</li>
+        <li><a href="/auth/dev-ready/register/nino-error-invalid">FINDr - NINO - invalid</a> ** DESCOPED **</li>
+    </ul>
+
+    <h2 class="govuk-heading-s" id="content">Content pages</h2>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><a href="/auth/dev-ready/email-already-registered-alt">Email already registered</a></li>
+        <li><a href="/auth/dev-ready/email-already-registered">Email already registered - archived</a></li>
+        <li><a href="/auth/dev-ready/page-not-found">Page not found</a></li>
+        <li><a href="/auth/dev-ready/page-cannot-be-accessed-directly">Page cannot be accessed directly</a></li>
+        <li><a href="/auth/dev-ready/back-button-errors/register">Back button error - register</a></li>
+        <li><a href="/auth/dev-ready/back-button-errors/sign-in">Back button error - sign in</a></li>
+        <li><a href="/auth/dev-ready/back-button-errors/email-already-registered">Back button error - email already registered</a></li>
+        <li><a href="/auth/dev-ready/back-button-errors/forgotten-password">Back button error - forgotten password</a></li>
+        <li><a href="/auth/dev-ready/back-button-errors/reset-account-details">Back button error - update your mobile phone number</a></li>
+        <li><a href="/auth/dev-ready/service-unavailable">Service unavailable</a></li>
+        <li><a href="/auth/dev-ready/problem-with-the-service">Problem with the service</a></li>
+        <li><a href="/auth/dev-ready/register/timeout">Registration stopped</a></li>
+        <li><a href="/auth/dev-ready/register/modal">Registration - timeout warning modal</a></li>
+        <li><a href="/auth/dev-ready/register/start-again">Registration - start again</a></li>
+        <li><a href="/auth/dev-ready/register/start-again-incorrect-codes">Registration - start again: multiple incorrect security codes</a></li>
+        <li><a href="/auth/dev-ready/register/start-again-expired-codes">Registration - start again: multiple expired security codes</a></li>
+        <li><a href="/auth/dev-ready/register/partially-registered-returning-user">Registration - returning partially registered user</a></li>
+        <li><a href="/auth/dev-ready/register/partially-registered-returning-user-lc">Registration - low confidence - returning partially registered user</a></li>
+        <li><a href="/auth/dev-ready/register/add-mpn-signing-in">Registration - Add a mobile phone number when you sign in</a> after a user has entered MPN incorrectly x3</li>
+        <li><a href="/auth/dev-ready/register/no-findr-match">FINDr - no match found</a> ** DESCOPED **</li>
+        <li><a href="/auth/dev-ready/register/enter-your-MPN-again">Enter mobile phone number again</a> user has entered MPN incorrectly x3 and needs to enter MPN again</li>
+        <li><a href="/auth/dev-ready/start-again-sign-in">You need to start again (sign in)</a></li>
+        <li><a href="/auth/dev-ready/account-recovery/start-again">FINDr - no match found (account recovery and registration) </a></li>
+        <li><a href="/auth/dev-ready/temporarily-locked-out">Temporarily locked out</a></li>
+        <li><a href="/auth/dev-ready/locked-out">Locked out</a></li>
+        <li><a href="/auth/dev-ready/reset-password/reset-email-not-registered">Reset password email not registered</a></li>
+        <li><a href="/auth/dev-ready/sign-in-modal">Sign in - timeout warning modal</a></li>
+        <li><a href="/auth/dev-ready/sign-in-static-timeout-banner">Sign in - timeout warning static banner non-javascript</a></li>
+        <li><a href="/auth/dev-ready/sign-in-timeout">Sign in stopped</a></li>
+        <li><a href="/auth/dev-ready/still-locked-out">Still locked out</a> multiple failed sign ins</li>
+        <li><a href="/auth/dev-ready/locked-out-sms">Locked out</a> multiple incorrect security code entries ** DESCOPED - Uses 'Locked out' (above) **</li>
+        <li><a href="/auth/dev-ready/temporarily-locked-out-sms">Sign in: Temporarily locked out</a> for 3 incorrect SMS code entries</li>
+        <li><a href="/auth/dev-ready/temporarily-locked-out-email">Sign in: Temporarily locked out</a> for 3 incorrect email code entries</li>
+        <li><a href="/auth/dev-ready/reset-temporarily-locked-out-sms">Password reset: Temporarily locked out</a> for 3 incorrect SMS code entries</li>
+        <li><a href="/auth/dev-ready/reset-temporarily-locked-out-email">Password reset: Temporarily locked out</a> for 3 incorrect email code entries</li>
+        <li><a href="/auth/dev-ready/reset-password/24-hour-reset">Password already reset in last 24 hours</a></li>
+        <li><a href="/auth/dev-ready/account-recovery/still-locked-out-codes">Account recovery - Still locked out</a> multiple incorrect security codes entered</li>
+        <li><a href="/auth/dev-ready/account-recovery/temporarily-locked-out-codes">Account recovery - Temporarily locked out</a> multiple incorrect security codes entered</li>
+        <li><a href="/auth/dev-ready/account-recovery/sign-in-timeout">Account recovery - Sign in timeout</a></li>
+        <li><a href="/auth/dev-ready/account-recovery/sign-in-timeout-modal">Account recovery - Sign in timeout warning modal</a></li>
+        <li><a href="/auth/dev-ready/account-recovery/GUIDs-do-not-match">AM GUID and FINDr GUID don't match</a></li>
+        <li><a href="/auth/dev-ready/absolute-timeout">Absolute timeout Authenicate and Registration journeys</a></li>
+        <li><a href="/auth/v13/kbv-uplift/happy-path-1/success">Identity check complete – KBV uplift</a></li>
+        <li><a href="/auth/dev-ready/unable-to-confirm-identity">Unable to confirm identity</a></li>
+    </ul>
+
+    <h2 class="govuk-heading-s" id="emails">Notification emails</h2>
+    <ul class="govuk-list govuk-list--bullet">
+        <li><a href="/auth/dev-ready/security-code-email">Email security code</a></li>
+        <li><a href="/auth/dev-ready/password-changed-email">Your password has changed</a></li>
+        <li><a href="/auth/dev-ready/phone-number-changed-email">Your mobile phone number has changed</a></li>
+        <li><a href="/auth/dev-ready/account-locked-email">You are locked out </a></li>
+        <li><a href="/auth/dev-ready/sign-in-details-updated-email">Sign in details updated</a>** DESCOPED **</li>
+        <li><a href="/auth/dev-ready/email-address-changed-old-email">Your email address has changed - old email address</a> ** DESCOPED **</li>
+        <li><a href="/auth/dev-ready/email-address-changed-new-email">Your email address has changed - new email address</a> ** DESCOPED **</li>
+        <li><a href="/auth/dev-ready/register/registration-successful">Registration successful</a></li>
+    </ul>
+
+    <h2 class="govuk-heading-s" id="sms">Notification text messages</h2>
+    <ul class="govuk-list govuk-list--bullet">
+        <li><a href="/auth/dev-ready/security-code-sms">Security code</a></li>
+        <li><a href="/auth/dev-ready/security-code-register-sms">Security code Register</a></li>
+        <li><a href="/auth/dev-ready/security-code-sign-in-sms">Security code Sign in</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

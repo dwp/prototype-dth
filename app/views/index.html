@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = 'OIDV prototype home' %}
+
+{% block pageTitle %}
+  {{pageHeading}}
+{% endblock %}
+
+{% block serviceName %}
+  {% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">
+      <span class="govuk-caption-l">Dynamic Trust Hub prototype</span>
+      Online Identity Verification (OIDV)
+    </h1>
+    
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+      Notable changes
+    </h2>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><a href="/auth/dev-ready/register/collecting-your-personal-details">Findr start</a></li>
+      <li><a href="/auth/dev-ready/register/complete">Registration complete</a></li>
+      <li><a href="/auth/dev-ready/register/registration-successful">Registration successful – email notification</a></li>
+      <li><a href="/auth/dev-ready/unable-to-confirm-identity">IDV failed</a></li>
+      <li><a href="/idv/hmrciv/confirm-your-identity-start">CYI start</a></li>
+      <li><a href="/idv/hmrciv/info-does-not-match-2">HMRC 2nd failed attempt</a></li>
+      <li><a href="/idv/hmrciv/choose-2-items">HMRC IDV checklist – removed conditional reveals</a></li>
+    </ul>
+
+    <ul class="govuk-list govuk-list--spaced govuk-!-margin-top-6 govuk-!-margin-bottom-6">
+      <li>
+        <a class="govuk-button govuk-!-margin-bottom-4" href="/auth/dev-ready/register/start?service-name=Service%20Name">
+          Start prototype
+        </a>
+      </li>
+    </ul>
+
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    
+    <h3 class="govuk-heading-s govuk-!-margin-bottom-1">
+      Codes for authentication steps
+    </h3>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Register email authentication: <strong>283194</strong></li>
+      <li>Register mobile authentication: <strong>969862</strong></li>
+      <li>Sign in mobile authentication: <strong>471350</strong></li>
+      <li>Reset password email authentication: <strong>373868</strong></li>
+      <li>Reset password mobile authentication: <strong>221645</strong></li>
+      <li>Account recovery mobile authentication: <strong>969862</strong></li>
+      <li>Account recovery (register new email journey) email authentication: <strong>283194</strong></li>
+      <li>Account recovery (cannot access mobile number journey) email authentication: <strong>919291</strong></li>
+    </ul>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    <h2 class="govuk-heading-m">Service breakdown</h2>
+    <p>
+      <a href="errors-notifications">Errors, content pages and notifications</a>
+    </p>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    {{ govukTag({
+      text: "experimental"
+    }) }}
+    <h2 class="govuk-heading-m">Improvements</h2>
+    <p>
+      <a href="/auth/experimental/index">View all the experimental journeys and pages</a>
+    </p>
+    
+  </div>
+</div>
+
+{% endblock %}

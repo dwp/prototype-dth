@@ -1,0 +1,266 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = 'OIDV prototype home' %}
+
+{% block pageTitle %}
+  {{pageHeading}}
+{% endblock %}
+
+{% block serviceName %}
+  {% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">
+      <span class="govuk-caption-l">Dynamic Trust Hub prototype</span>
+      Online Identity Verification (OIDV)
+    </h1>
+    
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+      OIDV MVP journey
+    </h2>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Dev-ready authentication</li>
+      <li>IDV using HMRCIV</li>
+      <li>No consuming service</li>
+    </ul>
+
+    <ul class="govuk-list govuk-list--spaced govuk-!-margin-top-6 govuk-!-margin-bottom-6">
+      <li>
+        <a class="govuk-button govuk-!-margin-bottom-4" href="/auth/dev-ready/register/start?service-name=Service%20Name">
+          Start prototype
+        </a>
+      </li>
+    </ul>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Other prototype journeys
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <form action="/prototype-submit" method="post" class="form">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-font-weight-bold" for="journey-start">
+              Start journey from:
+            </label>
+            <select class="govuk-select" id="journey-start" name="journey-start">
+              <optgroup label="Carers Pathfinder">
+                <option value="/govuk/carers-how-to-apply,carers" selected>Carers: GOV.UK Make a claim page</option>
+                <option value="/carers/qb,carers">Carers: Siphoning stage of application process</option>
+                <option value="/auth/default/sign-in,carers">Carers: Authentication - new user journey</option>
+                <!-- <option value="/auth/default/sign-in-returning,carers">Carers: Authentication - returning user journey</option> -->
+                <option value="/auth/default/register/complete,carers">Carers: Registration success</option>
+                <option value="/idv/hmrciv/start-page,carers">Carers: IDV</option>
+              </optgroup>
+              <optgroup label="CxP/DSS">
+                <option value="/govuk/home,dss">DSS: GOV.UK home page</option>
+                <option value="/cxp/default/landing-page,dss">DSS: Landing page - new user journey</option>
+                <option value="/cxp/default/landing-page-returning,dss">DSS: Landing page - returning user journey</option>
+                <option value="/auth/default/sign-in,dss">DSS: Authentication - new user journey</option>
+                <option value="/auth/default/sign-in-returning,dss">DSS: Authentication - returning user journey</option>
+                <option value="/auth/default/register/complete,dss">DSS: Registration success</option>
+                <option value="/idv/default/idv-start-page,dss">DSS: IDV</option>
+                <option value="/cxp/default/benefits-summary-table-e,dss">DSS: Benefits summary</option>
+              </optgroup>
+            </select>
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-font-weight-bold" for="citizen-name">
+              Citizen name:
+            </label>
+            <input class="govuk-input govuk-input--width-20" id="citizen-name" name="citizen-name" type="text" value="{{ data['citizen-name'] }}">
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-font-weight-bold" for="auth">
+              Auth version:
+            </label>
+            <select class="govuk-select" id="auth" name="auth">
+              <option value="9" selected>v9</option>
+              <option value="8">v8</option>
+              <option value="7">v7</option>
+              <option value="0">v6</option>
+            </select>
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-font-weight-bold" for="idv">
+              IDV version:
+            </label>
+            <select class="govuk-select" id="idv" name="idv">
+              <option value="4" selected>v4</option>
+              <option value="3">v3</option>
+              <option value="2">v2</option>
+              <option value="1">v1</option>
+              <option value="0">v0</option>
+            </select>
+          </div>
+
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
+              IDV success:
+            </legend>
+            <div class="govuk-radios govuk-radios--inline govuk-!-margin-bottom-5">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="idvHappy-happy" name="idvHappy" type="radio" value="true" checked>
+                <label class="govuk-label govuk-radios__label" for="idvHappy-happy">Happy</label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="idvHappy-unhappy" name="idvHappy" type="radio" value="false">
+                <label class="govuk-label govuk-radios__label" for="idvHappy-unhappy">Unhappy</label>
+              </div>
+            </div>
+          </fieldset>
+
+          <h3 class="govuk-heading-m">
+            CxP/DSS prototype options
+          </h3>
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
+              Citizen benefits:
+            </legend>
+            <div class="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="benefits-esa" name="citizen-benefits" type="checkbox" value="esa" checked>
+                <label class="govuk-label govuk-checkboxes__label" for="benefits-esa">
+                  ESA
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="benefits-pip" name="citizen-benefits" type="checkbox" value="pip" checked>
+                <label class="govuk-label govuk-checkboxes__label" for="benefits-pip">
+                  PIP
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        
+          <div class="govuk-form-group govuk-!-margin-top-6">
+            <label class="govuk-label govuk-!-font-weight-bold" for="cxp">
+              CxP/DSS version:
+            </label>
+            <select class="govuk-select" id="cxp" name="cxp">
+              <option value="2" selected>v2</option>
+              <option value="1">v1</option>
+              <option value="0">v0</option>
+            </select>
+          </div>
+    
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-font-weight-bold" for="esa-status">
+              ESA status:
+            </label>
+            <select class="govuk-select" id="esa-status" name="esa-status">
+              <option value="ok" selected>OK</option>
+              <option value="out-of-hrs">JSAPS out of hours</option>
+              <option value="service-down">JSAPS service down</option>
+              <option value="no-next-payment">No next payment</option>
+              <option value="payment-suspended">Payments suspended</option>
+              <option value="next-pay-zero">Next payment is zero</option>
+            </select>
+          </div>
+    
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-font-weight-bold" for="pip-status">
+              PIP status:
+            </label>
+            <select class="govuk-select" id="pip-status" name="pip-status">
+              <option value="ok" selected>OK</option>
+              <option value="unavailable">PIPCS unavailable</option>
+              <option value="no-next-payment">No next payment</option>
+              <option value="payment-suspended">Payments suspended</option>
+              <option value="next-pay-zero">Next payment is zero</option>
+            </select>
+          </div>
+
+          <button class="govuk-button" type="submit" name="action" value="viewPrototype">View prototype</button>
+          <button class="govuk-button govuk-button--secondary govuk-!-margin-left-4" type="submit" name="action" value="generateLink">Generate prototype journey link</button>
+
+        </form>
+      </div>
+    </details>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    
+    <h3 class="govuk-heading-s govuk-!-margin-bottom-1">
+      Codes for authentication steps
+    </h3>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Register email authentication: <strong>283194</strong></li>
+      <li>Register mobile authentication: <strong>969862</strong></li>
+      <li>Sign in mobile authentication: <strong>471350</strong></li>
+      <li>Reset password email authentication: <strong>373868</strong></li>
+      <li>Reset password mobile authentication: <strong>221645</strong></li>
+      <li>Account recovery mobile authentication: <strong>969862</strong></li>
+      <li>Account recovery (register new email journey) email authentication: <strong>283194</strong></li>
+      <li>Account recovery (cannot access mobile number journey) email authentication: <strong>919291</strong></li>
+    </ul>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    <h2 class="govuk-heading-m">Service breakdown</h2>
+    {% set authHTML %}
+      {% include 'auth.html' %}
+    {% endset %}
+
+    {% set idvHTML %}
+      {% include 'idv.html' %}
+    {% endset %}
+
+    {% set devReadyHTML %}
+      {% include 'dev-ready.html' %}
+    {% endset %}
+
+    {% set docs %}
+      {% include 'docs.html' %}
+    {% endset %}
+
+    {% set cxpHTML %}
+      {% include 'cxp.html' %}
+    {% endset %}
+
+
+    {{ govukTabs({
+      items: [
+        {
+          label: "Auth",
+          id: "auth",
+          panel: {
+            html: authHTML
+          }
+        }, {
+          label: "IDV",
+          id: "idv",
+          panel: {
+            html: idvHTML
+          }
+        }, {
+          label: "Dev-ready versions",
+          id: "dev-ready",
+          panel: {
+            html: devReadyHTML
+          }
+        }, {
+          label: "Docs",
+          id: "docs",
+          panel: {
+            html: docs
+          }
+        }, {
+          label: "CxP/DSS (archived)",
+          id: "cxp",
+          panel: {
+            html: cxpHTML
+          }
+        }
+      ]
+    }) }}
+  </div>
+</div>
+
+{% endblock %}
