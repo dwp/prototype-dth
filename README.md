@@ -14,7 +14,7 @@ We capture any connected consuming service in 'app/data/session-data-defaults.js
 
 ## Heroku
 
-When any changes are committed and pushed to the master branch of the [GitLab repo] (https://gitlab.com/dwp/dynamic-trust-hub/prototypes/dth-prototype), Heroku redeploys the prototype. The credentials for viewing the live prototype are set in Heroku under 'Settings' > 'Config Vars' > 'Reval Config Vars'.
+When any changes are committed and pushed to the master branch of the this repo, Heroku redeploys the prototype. The credentials for viewing the live prototype are set in Heroku under 'Settings' > 'Config Vars' > 'Reval Config Vars'.
 
 ## Dev-ready prototype updates
 
