@@ -38,11 +38,7 @@
             </p>
 
             <form method="post" novalidate action=
-                {% if dvla === "true" %} 
-                "/idv/hmrciv/your-passport-details?dvla=true"
-                {% elif iredva === "true" %} 
-                    "/idv/hmrciv/your-passport-details?iredva=true"
-                {% elif payslip === "true" %} 
+                {% if payslip === "true" %} 
                     "/idv/hmrciv/your-passport-details?payslip=true"
                 {% elif p60 === "true" %} 
                     "/idv/hmrciv/your-passport-details?p60=true" 

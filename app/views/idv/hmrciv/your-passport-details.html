@@ -29,12 +29,8 @@ Your passport details - GOV.UK
       Your passport details
     </h1>
 
-    <form method="post" novalidate action=
-      {% if dvla === "true" %} 
-        "/idv/hmrciv/dvla"
-      {% elif iredva === "true" %} 
-        "/idv/hmrciv/iredva"
-      {% elif payslip === "true" %} 
+    <form method="post" action=
+      {% if payslip === "true" %} 
         "/idv/hmrciv/payslip"
       {% elif p60 === "true" %} 
         "/idv/hmrciv/p60" 

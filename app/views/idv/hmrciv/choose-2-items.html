@@ -46,29 +46,50 @@
               </span>
             </div>
 
+
             <div class="govuk-radios__item">
-              <input class="govuk-checkboxes__input" id="dvla" name="dvla" type="checkbox" 
-              value="true">
-                     
-              <label class="govuk-label govuk-checkboxes__label" for="dvla">
-                  UK photocard driving licence (including provisional licences)
+              <input class="govuk-checkboxes__input" id="payslipsP60" name="ivQuestionLogic" type="checkbox"
+                value="payslipsP60" aria-controls="target-payslipsP60" aria-expanded="false">
+
+              <label class="govuk-label govuk-checkboxes__label" for="payslipsP60">
+                Payslip or P60
               </label>
-              
-              <span id="dvla-hint" class="govuk-hint govuk-radios__hint">
-                  You need a driving licence issued by the DVA or the DVLA
+              <span id="payslipsP60-hint" class="govuk-hint govuk-radios__hint">
+                You need a payslip dated after {{ data['14-weeks-ago-hmrc'] }} or your most recent P60
               </span>
-          </div>
+            </div>
 
+            <!-- Start the reveal panel -->
 
-
-
-
-
-
-
-
-
-
+            <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="target-payslipsP60">
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                  <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Which document do you want to use?
+                  </legend> -->
+                  <div class="govuk-radios">
+                    <div class="govuk-radios__item" data-children-count="1">
+                      <input class="govuk-radios__input"
+                             id="payslip" 
+                             name="payslipOrP60" 
+                             type="radio" 
+                             value="payslip">
+                      <label class="govuk-label govuk-radios__label" 
+                             for="payslip">
+                          Payslip
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item" data-children-count="1">
+                      <input class="govuk-radios__input" 
+                             id="p60"
+                             name="payslipOrP60" 
+                             type="radio" 
+                             value="p60">
+                      <label class="govuk-label govuk-radios__label" for="p60">P60</label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
 
             <div class="govuk-radios__item">
               <input class="govuk-checkboxes__input" id="self-assessment" name="self-assessment" type="checkbox" value="true" data-aria-controls="target-sa">
