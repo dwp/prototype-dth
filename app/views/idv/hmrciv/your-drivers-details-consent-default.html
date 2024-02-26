@@ -60,6 +60,8 @@
             "/idv/hmrciv/your-drivers-details-eng?tuKbv=true" 
             {% elif voiceId === "true" %} 
             "/idv/hmrciv/your-drivers-details-eng?voiceId=true"
+            {% else %} 
+            "/idv/hmrciv/your-drivers-details-eng?dvla=true"
             {% endif %}>
 
                 {{ govukRadios({
