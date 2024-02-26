@@ -37,9 +37,7 @@
 
 
             <form method="post" novalidate action=
-                {% if iredva === "true" %} 
-                "/idv/hmrciv/your-drivers-details-ire?iredva=true"
-                {% elif payslip === "true" %} 
+                {% if payslip === "true" %} 
                 "/idv/hmrciv/your-drivers-details-ire?payslip=true"
                 {% elif p60 === "true" %} 
                 "/idv/hmrciv/your-drivers-details-ire?p60=true" 
@@ -51,6 +49,8 @@
                 "/idv/hmrciv/your-drivers-details-ire?tuKbv=true" 
                 {% elif voiceId === "true" %} 
                 "/idv/hmrciv/your-drivers-details-ire?voiceId=true"
+                {% else %} 
+                "/idv/hmrciv/your-drivers-details-ire?iredva=true"
                 {% endif %}
             >
 

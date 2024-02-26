@@ -436,6 +436,9 @@ const idvReset = req => {
   req.session.data['tcOptions'] = "";
   req.session.data['cra-consent'] = "";
   req.session.data['passport-consent'] = "";
+  req.session.data['driving'] = "";
+  req.session.dvla = false;
+  req.session.iredva = false;
   req.session.payslip = false;
   req.session.p60 = false;
   req.session.sa = false;
