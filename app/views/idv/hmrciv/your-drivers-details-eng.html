@@ -22,19 +22,26 @@ Your passport details - GOV.UK
   <div class="govuk-grid-column-two-thirds">
 
     <span class="govuk-caption-xl">
-      About your UK passport
+      Driving licence details
     </span>
 
     <h1 class="govuk-heading-xl ">
-      Your passport details
+      Enter your UK photocard driving licence details
     </h1>
+    
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary" data-gtm-vis-recent-on-screen41855952_577="30" data-gtm-vis-first-on-screen41855952_577="30" data-gtm-vis-total-visible-time41855952_577="100" data-gtm-vis-has-fired41855952_577="1">
+        <span class="govuk-details__summary-text">
+          Where to find these details on your driving licence
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <p>Enter the information from the driving licence using the numbered labels to help you.</p><p>For example, on your driving licence, the:</p><ul class="govuk-list govuk-list--bullet"><li>surname is labelled '1'</li><li>issue date is '4a'</li><li>expiry date is '4b'</li><li>licence number is '5'</li><li>issue number is the two digits after the licence number, and may be separated by a space or on a separate line</li></ul><img style="max-width: 100%; height: auto;" src="/public/images/dvla-example-photocard-licence.png" alt="Driving licence example">
+      </div>
+    </details>
 
-    <form method="post" novalidate action=
-      {% if dvla === "true" %} 
-        "/idv/hmrciv/dvla"
-      {% elif iredva === "true" %} 
-        "/idv/hmrciv/iredva"
-      {% elif payslip === "true" %} 
+    <form method="post" action=
+      {% if payslip === "true" %} 
         "/idv/hmrciv/payslip"
       {% elif p60 === "true" %} 
         "/idv/hmrciv/p60" 
@@ -46,54 +53,31 @@ Your passport details - GOV.UK
         "/idv/hmrciv/credit-record-questions-consent" 
       {% elif voiceId === "true" %} 
         "/idv/hmrciv/voiceId"
+        {% else %} 
+        "./success" 
       {% endif %}
     >
 
     <div class="govuk-form-group" data-required="" data-error="Enter your given names in the right format">
       <label class="govuk-label govuk-label--m " for="givenNames">
-        Given names
+        Surname (1)
       </label>
 
-      <span id="givenNames-hint" class="govuk-hint">
-        As they appear on your passport
-      </span>
 
       <input class="govuk-input govuk-input--width-20" id="givenNames" name="firstName" type="text">
     </div>
 
-    <div class="govuk-form-group" data-required="" data-error="Enter your surname in the right format">
-      <label class="govuk-label govuk-label--m " for="surname">
-        Surname
-      </label>
-
-      <span id="surname-hint" class="govuk-hint">
-        As it appears on your passport
-      </span>
-
-      <input class="govuk-input govuk-input--width-20" id="surname" name="lastName" type="text">
-      </div>
-
-      <div class="govuk-form-group" data-required="" data-error="Enter your passport number in the right format">
-        <label class="govuk-label govuk-label--m " for="passport">
-          Passport number
-        </label>
-
-        <span id="passport-hint" class="govuk-hint">
-          Contains up to 9 numbers and no letters
-        </span>
-
-        <input class="govuk-input govuk-input--width-20" id="passport" name="passport" type="text">
-      </div>
+      
 
       <div class="govuk-form-group" data-required="" data-error="Enter your passport expiry date in the right format">
         <fieldset class="govuk-fieldset" aria-describedby="dob-hint" role="group">
 
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-            Date of expiry
+            Issue Date (4a)
           </legend>
 
           <span id="dob-hint" class="govuk-hint">
-            For example, 31 MAR 26 or 31 03 26
+            It's on the front of your driving licence. For example, 31 05 2024
           </span>
 
           <div class="govuk-date-input" id="ppExpiryDate">
@@ -137,6 +121,84 @@ Your passport details - GOV.UK
         </fieldset>
 
       </div>
+
+      <div class="govuk-form-group" data-required="" data-error="Enter your passport expiry date in the right format">
+        <fieldset class="govuk-fieldset" aria-describedby="dob-hint" role="group">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            Expiry Date (4b)
+          </legend>
+
+          <span id="dob-hint" class="govuk-hint">
+            It's on the front of your driving licence. For example, 31 05 2024
+          </span>
+
+          <div class="govuk-date-input" id="ppExpiryDate">
+
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group" data-required=""
+                data-error="Enter your passport expiry date in the right format">
+                <label class="govuk-label govuk-date-input__label" for="ppExpiryDateDay">
+                  Day
+                </label>
+
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="ppExpiryDateDay"
+                  name="ppExpiryDateDay" type="number" pattern="[0-9]*">
+              </div>
+            </div>
+
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group" data-required=""
+                data-error="Enter your passport expiry date in the right format">
+                <label class="govuk-label govuk-date-input__label" for="ppExpiryDateMonth">
+                  Month
+                </label>
+
+                <input class="govuk-input govuk-date-input__input 
+            govuk-input--width-3   " id="ppExpiryDateMonth" name="ppExpiryDateMonth">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group" data-required=""
+                data-error="Enter your passport expiry date in the right format">
+                <label class="govuk-label govuk-date-input__label" for="ppExpiryDateYear">
+                  Year
+                </label>
+
+                <input class="govuk-input govuk-date-input__input govuk-input--width-3" id="ppExpiryDateYear"
+                  name="ppExpiryDateYear" type="number" pattern="[0-9]*">
+              </div>
+            </div>
+
+          </div>
+        </fieldset>
+
+      </div>
+
+      <div class="govuk-form-group" data-required="" data-error="Enter a UK photocard driving licence number, like JONES804018JA9CD">
+        <label class="govuk-label govuk-label--m  " for="licenceNo">
+          Licence number (5)
+        </label>
+        
+        <div id="licenceNo-hint" class="govuk-hint">
+          For example, JONES804018JA9CD
+        </div>
+        
+        <input class="govuk-input govuk-input--width-20" id="licenceNo" name="licenceNo" type="text">
+      </div>
+
+      <div class="govuk-form-group" data-required="" data-error="Enter the two characters after the licence number. It may be separated by a space or on a separate line">
+        <label class="govuk-label govuk-label--m  " for="issueNo">
+          Issue number
+        </label>
+        
+        <div id="issueNo-hint" class="govuk-hint">
+          It's the two characters after the licence number. It may be separated by a space or on a separate line
+        </div>
+        
+        <input class="govuk-input govuk-input--width-5" id="issueNo" name="issueNo" type="text">
+      </div>
+      
 
       <input class="govuk-button " type="submit" value="Continue">
 
