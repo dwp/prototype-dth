@@ -19,52 +19,57 @@
         <div class="govuk-grid-column-two-thirds">
 
             <span class="govuk-caption-l">
-                Passport details
+                Driving licence details
             </span>
             <h1 class="govuk-heading-l">
                 We need your consent to share your information
             </h1>
 
             <p class="govuk-body">
-                To help confirm your identity using your passport details, we need your consent to share your information with the HM Passport Office.
+                To help confirm your identity using your driving licence details, we need your consent to share your information with the Driver and Vehicle Licensing Agency (DVLA).
             </p>
 
             <p class="govuk-body">
-                The Passport Office will compare the information you enter with their records, and confirm with HMRC if the details are correct.
+                The DVLA will compare the information you enter with their records, and confirm with HMRC if the details are correct.
             </p>
 
             <p class="govuk-body">
                 For details about how we store and process your information, see our <a href="" class="govuk-link">privacy notice (opens in new window or tab)</a>.
             </p>
 
-            <form method="post" novalidate action=
-                {% if dvla === "true" %} 
-                "/idv/hmrciv/your-passport-details?dvla=true"
-                {% elif iredva === "true" %} 
-                    "/idv/hmrciv/your-passport-details?iredva=true"
-                {% elif payslip === "true" %} 
-                    "/idv/hmrciv/your-passport-details?payslip=true"
-                {% elif p60 === "true" %} 
-                    "/idv/hmrciv/your-passport-details?p60=true" 
-                {% elif sa === "true" %} 
-                    "/idv/hmrciv/your-passport-details?sa=true" 
-                {% elif tcKbv === "true" %} 
-                    "/idv/hmrciv/your-passport-details?tcKbv=true"
-                {% elif tuKbv === "true" %} 
-                    "/idv/hmrciv/your-passport-details?tuKbv=true" 
-                {% elif voiceId === "true" %} 
-                    "/idv/hmrciv/your-passport-details?voiceId=true"
-                {% endif %}
-            >
+            <p class="govuk-body">
+                By consenting you agree to:
+              </p>
+      
+              <ul class="govuk-list govuk-list--bullet">
+                <li>HMRC sharing the driving licence details you have provided with the DVLA</li>
+                <li>the DVLA comparing the information with their records</li>
+                <li>the DVLA confirming to HMRC whether or not the details match</li>
+              </ul>
+
+            <form method="post" novalidate action= 
+            {% if payslip === "true" %} 
+            "/idv/hmrciv/your-drivers-details-eng?payslip=true"
+            {% elif p60 === "true" %} 
+            "/idv/hmrciv/your-drivers-details-eng?p60=true" 
+            {% elif sa === "true" %} 
+            "/idv/hmrciv/your-drivers-details-eng?sa=true" 
+            {% elif tcKbv === "true" %} 
+            "/idv/hmrciv/your-drivers-details-eng?tcKbv=true"
+            {% elif tuKbv === "true" %} 
+            "/idv/hmrciv/your-drivers-details-eng?tuKbv=true" 
+            {% elif voiceId === "true" %} 
+            "/idv/hmrciv/your-drivers-details-eng?voiceId=true"
+            {% endif %}>
 
                 {{ govukRadios({
                 classes: "govuk-radios--inline",
                 name: "changed-name",
                 fieldset: {
                     legend: {
-                    text: "Do you consent to HMRC sharing your passport details with the HM Passport Office?",
+                    text: "I consent to HMRC sharing my details with the DVLA",
                     isPageHeading: false,
-                    classes: "govuk-body"
+                    classes: "govuk-body govuk-!-font-weight-bold"
                     }
                 },
                 items: [
