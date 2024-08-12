@@ -12,7 +12,7 @@
     "express": "^4.18.2",
     "govuk-frontend": "^4.5.0",
     "govuk-prototype-kit": "13.16.2",
-    "hmrc-frontend": "^5.20.0",
+    "hmrc-frontend": "5.67.1",
     "jquery": "^3.6.2",
     "notifications-node-client": "8.0.0"
   }
