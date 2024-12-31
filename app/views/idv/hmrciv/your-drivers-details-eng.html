@@ -41,11 +41,7 @@ Your passport details - GOV.UK
     </details>
 
     <form method="post" action=
-      {% if payslip === "true" %} 
-        "/idv/hmrciv/payslip"
-      {% elif p60 === "true" %} 
-        "/idv/hmrciv/p60" 
-      {% elif sa === "true" %} 
+      {% if sa === "true" %} 
         "/idv/hmrciv/sa-questions" 
       {% elif tcKbv === "true" %} 
         "/idv/hmrciv/tcKbv"

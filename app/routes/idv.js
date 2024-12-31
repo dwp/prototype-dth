@@ -163,8 +163,7 @@ router.get('/idv/default/kbv-submit', (req, res) => {
 
 router.post('/idv/hmrciv/idvselection', (req, res) => {
   const passportConsent = req.session.data['ukPassport'];
-  const drivingLicence = req.session.data['driving'];
-  const payslipOrP60 = req.session.data['payslipOrP60'];
+  const drivingLicence = req.session.data['dvla'];
   const selfAssessment = req.session.data['self-assessment'];
   const voiceID = req.session.data['tcOptions'];
   const tuConsent = req.session.data['transunion'];
@@ -174,20 +173,8 @@ router.post('/idv/hmrciv/idvselection', (req, res) => {
 
 
   // Passport and dvla
-  if(passportConsent == 'true' &&  drivingLicence == 'dvla') {
+  if(passportConsent == 'true' &&  drivingLicence == 'true') {
     res.redirect('./your-passport-details-consent?dvla=true')
-  }
-  // Passport and dva
-  else if(passportConsent == 'true' &&  drivingLicence == 'iredva') {
-    res.redirect('./your-passport-details-consent?iredva=true')
-  }
-  // Passport and payslip
-  else if(passportConsent == 'true' && payslipOrP60 == 'payslip') {
-    res.redirect('./your-passport-details-consent?payslip=true')
-  }
-  // Passport and P60 
-  else if (passportConsent == 'true' && payslipOrP60 == 'p60') {
-    res.redirect('./your-passport-details-consent?p60=true')
   }
   // Passport and Self Assessment 
   else if (passportConsent == 'true' && selfAssessment == 'true') {
@@ -207,93 +194,30 @@ router.post('/idv/hmrciv/idvselection', (req, res) => {
   }
 
 
- // UK Driving licence and payslip
- else if (drivingLicence == 'dvla' && payslipOrP60 == 'payslip') {
-  res.redirect('./your-drivers-details-consent-default?payslip=true')
-}
-// UK Driving licence and P60 
-else if (drivingLicence == 'dvla' && payslipOrP60 == 'p60') {
-  res.redirect('./your-drivers-details-consent-default?p60=true')
-}
+
 // UK Driving licence and Self Assessment 
-else if (drivingLicence == 'dvla' && selfAssessment == 'true') {
+else if (drivingLicence == 'true' && selfAssessment == 'true') {
   res.redirect('./your-drivers-details-consent-default?sa=true')
 }
 // UK Driving licence and tax credits KBV
-else if (drivingLicence == 'dvla' && voiceID == 'voiceIdNo') {
+else if (drivingLicence == 'true' && voiceID == 'voiceIdNo') {
   res.redirect('./your-drivers-details-consent-default?tcKbv=true')
 }
 // UK Driving licence and tax credits voice ID
-else if (drivingLicence == 'dvla' && voiceID == 'voiceIdYes') {
+else if (drivingLicence == 'true' && voiceID == 'voiceIdYes') {
   res.redirect('./your-drivers-details-consent-default?voiceId=true')
 }
 // UK Driving licence and Transunion
-else if (drivingLicence == 'dvla' && tuConsent == 'true') {
+else if (drivingLicence == 'true' && tuConsent == 'true') {
   res.redirect('./your-drivers-details-consent-default?tuKbv=true')
 }
 
-  // Payslip and tax credits KBV
-  else if (payslipOrP60 == 'payslip' && voiceID == 'voiceIdNo') {
-    res.redirect('./payslip-question-1?tcKbv=true');
-  }
-  // Payslip and Self Assessment 
-  else if (payslipOrP60 == 'payslip' && selfAssessment == 'true') {
-    res.redirect('./payslip-question-1?sa=true')
-  }
-  // Payslip and tax credits voice ID
-  else if (payslipOrP60 == 'payslip' && voiceID == 'voiceIdYes') {
-    res.redirect('./payslip-question-1?voiceId=true')
-  }
-  // Payslip and Transunion
-  else if (payslipOrP60 == 'payslip' && tuConsent == 'true') {
-    res.redirect('./payslip-question-1?tuKbv=true');
-  }
+  
   
 
 
-       
-        // NI Driving licence and payslip
-        else if (drivingLicence == 'iredva' && payslipOrP60 == 'payslip') {
-          res.redirect('./your-drivers-details-consent-ire?payslip=true')
-        }
-        // NI Driving licence and P60 
-        else if (drivingLicence == 'iredva' && payslipOrP60 == 'p60') {
-          res.redirect('./your-drivers-details-consent-ire?p60=true')
-        }
-        // NI Driving licence and Self Assessment 
-        else if (drivingLicence == 'iredva' && selfAssessment == 'true') {
-          res.redirect('./your-drivers-details-consent-ire?sa=true')
-        }
-        // NI Driving licence and tax credits KBV
-        else if (drivingLicence == 'iredva' && voiceID == 'voiceIdNo') {
-          res.redirect('./your-drivers-details-consent-ire?tcKbv=true')
-        }
-        // NI Driving licence and tax credits voice ID
-        else if (drivingLicence == 'iredva' && voiceID == 'voiceIdYes') {
-          res.redirect('./your-drivers-details-consent-ire?voiceId=true')
-        }
-        // NI Driving licence and Transunion
-        else if (drivingLicence == 'iredva' && tuConsent == 'true') {
-          res.redirect('./your-drivers-details-consent-ire?tuKbv=true')
-        }
-  
 
-  // P60 and Self Assessment 
-  else if (payslipOrP60 == 'p60' && selfAssessment == 'true') {
-    res.redirect('./p60-question-1?sa=true')
-  }
-  // P60 and tax credits KBV
-  else if (payslipOrP60 == 'p60' && voiceID == 'voiceIdNo') {
-    res.redirect('./p60-question-1?tcKbv=true');
-  }
-  // P60 and tax credits voice ID
-  else if (payslipOrP60 == 'p60' && voiceID == 'voiceIdYes') {
-    res.redirect('./p60-question-1?voiceId=true')
-  }
-  // P60 and Transunion
-  else if (payslipOrP60 == 'p60' && tuConsent == 'true') {
-    res.redirect('./p60-question-1?tuKbv=true');
-  }
+
 
   // Self Assessment and tax credits KBV
   else if (selfAssessment == 'true' && voiceID == 'voiceIdNo') {
@@ -326,16 +250,7 @@ else if (drivingLicence == 'dvla' && tuConsent == 'true') {
 router.post('/idv/hmrciv/dvla', (req, res) => {
   res.redirect('./your-drivers-details-consent-default');
 })
-router.post('/idv/hmrciv/iredva', (req, res) => {
-  res.redirect('./your-drivers-details-consent-ire');
-})
-router.post('/idv/hmrciv/payslip', (req, res) => {
-  res.redirect('./payslip-question-1');
-})
 
-router.post('/idv/hmrciv/p60', (req, res) => {
-  res.redirect('./p60-question-1');
-})
 
 router.post('/idv/hmrciv/tcKbv', (req, res) => {
   res.redirect('./tax-credits-question-1');
@@ -359,32 +274,8 @@ router.use((req, res, next) => {
   next();
 });
 
-router.use((req, res, next) => {
-  idvReset(req);
-  if (req.query.iredva) {
-    req.session.iredva = req.query.iredva;
-  }
-  res.locals.iredva = req.session.iredva;
-  next();
-});
 
-router.use((req, res, next) => {
-  idvReset(req);
-  if (req.query.payslip) {
-    req.session.payslip = req.query.payslip;
-  }
-  res.locals.payslip = req.session.payslip;
-  next();
-});
 
-router.use((req, res, next) => {
-  idvReset(req);
-  if (req.query.p60) {
-    req.session.p60 = req.query.p60;
-  }
-  res.locals.p60 = req.session.p60;
-  next();
-});
 
 router.use((req, res, next) => {
   idvReset(req);
@@ -413,14 +304,6 @@ router.use((req, res, next) => {
   next();
 });
 
-router.use((req, res, next) => {
-  idvReset(req);
-  if (req.query.payslip) {
-    req.session.payslip = req.query.payslip;
-  }
-  res.locals.payslip = req.session.payslip;
-  next();
-});
 
 router.use((req, res, next) => {
   idvReset(req);
@@ -432,15 +315,11 @@ router.use((req, res, next) => {
 });
 
 const idvReset = req => {
-  req.session.data['payslipOrP60'] = "";
   req.session.data['tcOptions'] = "";
   req.session.data['cra-consent'] = "";
   req.session.data['passport-consent'] = "";
   req.session.data['driving'] = "";
   req.session.dvla = false;
-  req.session.iredva = false;
-  req.session.payslip = false;
-  req.session.p60 = false;
   req.session.sa = false;
   req.session.tcKbv = false;
   req.session.tuKbv = false;

@@ -48,11 +48,7 @@
               </ul>
 
             <form method="post" novalidate action= 
-            {% if payslip === "true" %} 
-            "/idv/hmrciv/your-drivers-details-eng?payslip=true"
-            {% elif p60 === "true" %} 
-            "/idv/hmrciv/your-drivers-details-eng?p60=true" 
-            {% elif sa === "true" %} 
+            {% if sa === "true" %} 
             "/idv/hmrciv/your-drivers-details-eng?sa=true" 
             {% elif tcKbv === "true" %} 
             "/idv/hmrciv/your-drivers-details-eng?tcKbv=true"
