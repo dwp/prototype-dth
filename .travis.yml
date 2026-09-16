@@ -3,7 +3,7 @@ language: node_js
 node_js:
   - "lts/dubnium"
   - "lts/erbium"
-  - 14
+  - v14.21.3
 
 os:
   - linux
